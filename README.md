@@ -1,5 +1,5 @@
 # 👔Korea-Asset-Pricing
-> ** [intern] KAP에서의 업무일지를 작성합니다.
+> **[intern] KAP에서의 업무일지를 작성합니다.
 
 ## TIW (Today I worked)
 
