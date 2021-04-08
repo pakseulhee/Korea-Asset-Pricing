@@ -1,0 +1,79 @@
+4/8일 sql query시험 (단원: 1, 2, 3, 4)
+
+TD_TRDEALMASTER: 매매정보 테이블
+1. 매매정보 테이블에서 NULL이 허용되지 않는 컬럼은 어느 컬럼인지 작성하시오.
+
+	ORG_CODE
+	REPORT_YMD
+	TR_UTI
+	TR_ACTION_TYPE
+	ITEM_CODE
+	EVENT_YMD
+
+2. USER_COL_COMMENTS는 오라클에서 제공하는 데이터 딕셔너리로서 각 테이블 컬럼의 정보를 확인 할 수 있다.
+
+	SELECT TABLE_NAME, COLUMN_NAME, COMMENTS
+	   FROM USER_COL_COMMENTS
+	   WHERE TABLE_NAME = 'TD_TRDEALMASTER'
+	   ;
+   
+   2-1) 위 정보를 이용하여 TD_TRDEALMASTER의 사무소코드가 950000 이고 
+        보고년월일이 20200925 인 데이터를 추출하는 쿼리를 작성하시오.
+		
+		SELECT * 
+			FROM TD_TRDEALMASTER 
+			WHERE ORG_CODE='950000' AND REPORT_YMD='20200925' ;
+	 
+   2-2) 위 정보 중에서 거래일자가 2019년도인 모든 데이터를 추출하는 쿼리를 작성하시오.
+   
+		 SELECT * 
+			 FROM TD_TRDEALMASTER 
+			 WHERE TRADE_YMD LIKE '2019%' ;
+   
+   2-3) 위 정보 중에서 거래일자가 2019년도이고, 만기일자가 2020년12월31일 이후인 모든 데이터를 추출하는 쿼리를 작성하시오.
+   
+		 SELECT * 
+			 FROM TD_TRDEALMASTER 
+			 WHERE TRADE_YMD LIKE '2019%' AND DUE_YMD > '20201231' ;
+
+
+3. KRX TR보고시에 UTI(Unique Transaction Identifier)는 최대 52자리 까지만 허용 되고 있다.
+   TD_TRDEALMASTER의 사무소코드가 950000 이고, 보고년월일이 20200925 이면서 TR_UTI컬럼의 길이가 52자리 초과인 데이터를 추출하는 쿼리를 작성하시오.
+   
+    SELECT * 
+		FROM TD_TRDEALMASTER 
+		WHERE ORG_CODE='950000' 
+			AND REPORT_YMD = '20200925' 
+			AND LENGTH(TR_UTI) > 52 ; 				
+   
+4. TD_TRDEALMASTER의 UPDATE_DATE 컬럼은 Date 형식으로 구성되어 있다.
+   해당 컬럼을 이용하여, 사무소코드 950000 전체에서, 보고년월일과 UPDATE_DATE의 입력일자가 같은 데이터를 추출하는 쿼리를 작성하시오.
+   
+     SELECT * 
+		 FROM TD_TRDEALMASTER 
+		 WHERE TO_CHAR(UPDATE_DATE, 'yyyymmdd') = REPORT_YMD ; 				
+   
+5. TD_TRDEALMASTER의 TR_ACTION_TYPE은 입력유형을 나타내는 컬럼이다.
+   해당 컬럼을 이용하여, 사무소코드 950000 전체에서, 
+   TR_ACTION_TYPE이 'N'일때는 'New', 'M'일때는 'Modify', 이외의 경우에는 'N/A'로 데이터을 변환하여 보여주는 쿼리를 작성하시오.
+   
+	SELECT DECODE(TR_ACTION_TYPE, 'N', 'New', 'M', 'Modify', 'N/A') AS result 
+		FROM TD_TRDEALMASTER; 	
+
+
+6. TD_TRFXFWD는 선도환 정보, TC_CMORGINFO는 사무소 정보를 관리 하는 테이블이다.
+   사무소코드 컬럼을 이용하여 두개의 테이블을 Join 하고(Inner/Equal Join) 사무소명을 보여주는 쿼리를 작성하시오.
+   사무소코드  : 950000
+   사무소명 : TC_CMORGINFO.ORG_NAME
+   (단, 동일한 사무소명이 2건 이상 나올경우 1개만 나오도록 쿼리를 작성 하시오. distinct 또는 rownum 사용.. 다른방법 사용해도 됨.)
+   
+	--equal join
+    SELECT DISTINCT tc.ORG_NAME 
+		FROM TD_TRFXFWD tt, TC_CMORGINFO tc 
+		WHERE tt.ORG_CODE = tc.ORG_CODE AND tt.ORG_CODE ='950000';
+		
+	--inner join
+	SELECT DISTINCT tc.ORG_NAME 
+		FROM TD_TRFXFWD tt INNER join TC_CMORGINFO tc 
+		on tt.ORG_CODE = tc.ORG_CODE AND tt.ORG_CODE ='950000';
+   
