@@ -16,5 +16,6 @@
 | [2021-04-08 THU]​ | - 쿼리업무 자동화 프로세스 구축됨 <br />- 프로세스 이해 및 필요 기능 발표 <br />- query test chapter 1, 2, 3, 4       |
 | [2021-04-09 FRI]​ | - 프로세스 발표 피드백 공부 <br />(큰 축을 잡아서 큰 기능들 생각해보기) <br />- oracle SQL chapter 5,6 공부       |
 | [2021-04-12 MON]​ | - oracle SQL chapter 8, 9 공부       |
-| [2021-04-13 TUE]​ | - oracle SQL chapter 5, 6, 8, 9 공부 및 복습       |
+| [2021-04-13 TUE]​ | - oracle SQL chapter 5, 6, 8, 9 공부 및 복습 <br />- daily check list 업무인계       |
+| [2021-04-13 WED]​ | - oracle SQL chapter 10, 11 공부 <br />- daily check list 업무 확인     |
 
