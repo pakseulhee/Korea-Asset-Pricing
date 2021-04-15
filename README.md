@@ -17,5 +17,6 @@
 | [2021-04-09 FRI]​ | - 프로세스 발표 피드백 공부 <br />(큰 축을 잡아서 큰 기능들 생각해보기) <br />- oracle SQL chapter 5,6 공부       |
 | [2021-04-12 MON]​ | - oracle SQL chapter 8, 9 공부       |
 | [2021-04-13 TUE]​ | - oracle SQL chapter 5, 6, 8, 9 공부 및 복습 <br />- daily check list 업무인계       |
-| [2021-04-13 WED]​ | - oracle SQL chapter 10, 11 공부 <br />- daily check list 업무 확인     |
+| [2021-04-13 WED]​ | - oracle SQL chapter 10, 11 공부 <br />- daily check list 업무 확인 <br />- query test2 chapter 5, 6, 8, 9    |
+| [2021-04-14 THU]​ | - query test2 review     |
 
