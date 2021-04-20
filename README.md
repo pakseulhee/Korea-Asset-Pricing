@@ -21,4 +21,5 @@
 | [2021-04-15 THU]​ | - query test2 review 스스로    |
 | [2021-04-16 FRI]​ | - query test2 review 대리님    |
 | [2021-04-19 MON]​ | - kb손해보험 K-ICS 산출시스템 컬럼 MAPPING    |
+| [2021-04-20 TUE]​ | - kb손해보험 K-ICS 산출시스템 컬럼 MAPPING    |
 
