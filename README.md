@@ -23,4 +23,5 @@
 | [2021-04-19 MON]​ | - kb손해보험 K-ICS 산출시스템 컬럼 MAPPING    |
 | [2021-04-20 TUE]​ | - kb손해보험 K-ICS 산출시스템 컬럼 MAPPING    |
 | [2021-04-21 WED]​ | - 롯데손해보험 K-ICS 리스크ID MAPPING  <br />- dealcode 확인작업   |
+| [2021-04-22 THU]​ | - query test3 chapter 10, 11, 15, 18   |
 
