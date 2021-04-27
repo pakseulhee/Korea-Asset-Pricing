@@ -26,5 +26,5 @@
 | [2021-04-22 THU] | - query test3 chapter 10, 11, 15, 18   |
 | [2021-04-23 FRI] | - query test3 chapter review   |
 | [2021-04-26 MON] | - 결근   |
-| [2021-04-27 TUE] | -     |
+| [2021-04-27 TUE] | - 배치 프로세스 별 실행 테이블 및 CRUD 파악    |
 
