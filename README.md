@@ -25,4 +25,6 @@
 | [2021-04-21 WED] | - 롯데손해보험 K-ICS 리스크ID MAPPING  <br />- dealcode 확인작업   |
 | [2021-04-22 THU] | - query test3 chapter 10, 11, 15, 18   |
 | [2021-04-23 FRI] | - query test3 chapter review   |
+| [2021-04-26 MON] | - 결근   |
+| [2021-04-27 TUE] | -     |
 
