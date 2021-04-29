@@ -24,7 +24,7 @@
 | [2021-04-20 TUE] | - kb손해보험 K-ICS 산출시스템 컬럼 MAPPING    |
 | [2021-04-21 WED] | - 롯데손해보험 K-ICS 리스크ID MAPPING  <br />- dealcode 확인작업   |
 | [2021-04-22 THU] | - query test3 chapter 10, 11, 15, 18   |sql query TEST END
-| [2021-04-23 FRI] | - query test3 chapter review   |
+| [2021-04-23 FRI] | - query test3 chapter review  <br/>-배치 프로세스 별 실행 테이블 및 CRUD 교육 (기한 5/7까지 엑셀)|
 | [2021-04-26 MON] | - 결근   |
 | [2021-04-27 TUE] | - 배치 프로세스 별 실행 테이블 및 CRUD 파악    |
 | [2021-04-28 WED] | - 배치 프로세스 별 실행 테이블 및 CRUD 파악 <br />- 삼성자산운용, 키움증권 배치조건 프로시저 생성 업무 배정회의   |
