@@ -1,0 +1,62 @@
+[오라클 function 생성]
+입력 가능 변수
+e,g1)YYYYMMDD
+--> YYYY-MM-DD
+
+e,g2)YYYY-MM-DD;YYYYMM-DD;YYYY-MMDD
+--> YYYY-MM-DD;YYYY-MM-DD;YYYY-MM-DD
+
+e,g3)YYYYMMDD;YYYYMMDD;YYYYMMDD;YYYYMMDD
+--> YYYY-MM-DD;YYYY-MM-DD;YYYY-MM-DD;YYYY-MM-DD
+
+
+1) replace function을 사용해서 ';' 삭제
+2) replace function을 사용해서 '-' 삭제
+3) 각각의 데이터를 8자리씩 parsing
+4) 8자리씩 parsing 한 데이터를 YYYY-MM-DD 형식으로 변경
+5) 날짜가 두개이상 있으면 ';'로 구분
+6) 마지막 날짜에는 ';'있으면 안됨.
+
+-------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION TRPROD.FN_CHECK_SH (iDate VARCHAR)
+RETURN VARCHAR2 IS    
+   oDate VARCHAR2(5000); --inputdata
+   oLength NUMBER(10,0);
+   vDateLeng  NUMBER(10,0);
+   vLoopCnt   NUMBER(10,0);
+   newLength   NUMBER(10,0);
+   vParsingDate VARCHAR(5000);   
+   newParsingDate VARCHAR2(5000); 
+
+BEGIN
+	vLoopCnt  := 0;
+	vDateLeng := 8;
+	SELECT REPLACE(REPLACE(iDate, ';', ''), '-', '') AS out_DATE, LENGTH(REPLACE(REPLACE(iDate, '-', ''), ';', '')) AS out_LENGTH
+	INTO oDate, oLength
+	FROM DUAL;
+
+	newLength := oLength/vDateLeng;
+	
+	WHILE (newLength > 0) LOOP
+	
+	SELECT SUBSTR(oDate, 1 + vLoopCnt * vDateLeng, vDateLeng) -- 1, 9, 17...
+    INTO vParsingDate
+    FROM DUAL;
+   
+   	SELECT TO_CHAR(TO_DATE(vParsingDate,'YYYYMMDD'),'YYYY-MM-DD')
+   	INTO vParsingDate
+   	FROM DUAL;
+
+	IF newLength > 1 then
+  	 	newParsingDate := concat(concat(newParsingDate, vParsingDate),';');	
+ 	ELSE
+  	 	newParsingDate := concat(newParsingDate, vParsingDate);	
+	END IF;
+
+	newLength := newLength - 1;
+	vLoopCnt := vLoopCnt + 1;
+	END LOOP;
+
+	RETURN newParsingDate;
+END;
